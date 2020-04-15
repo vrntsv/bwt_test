@@ -9,7 +9,7 @@ class View {
             extract($data);
         }
         */
-        var_dump('app/views/'.$view_name.'.php');
+        #var_dump('app/views/'.$view_name.'.php');
         include_once 'app/views/'.$view_name.'.php';
     }
 }
