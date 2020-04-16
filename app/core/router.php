@@ -7,6 +7,7 @@ class Router{
         session_start();
         $_SESSION['is_logged_in'] = false;
         var_dump($uri_data);
+
         if ($uri_data[1] == 'login') {
             include_once 'app/controllers/login_controller.php';
             $lc = new LoginController();
