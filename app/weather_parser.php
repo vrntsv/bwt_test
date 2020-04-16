@@ -26,6 +26,24 @@ function getWeatherData()
         ->each(function (Crawler $node) {
             return $node->html();
         });
+    $main_day = $crawler
+        ->filter('.tabs > .main > .day-link ')
+        ->each(function (Crawler $node) {
+            return $node->html();
+        });
 
-    return array('time'=>$weather_data[0], 'temperature'=>$weather_data[1]);
+    $today_data = $crawler
+        ->filter('.tabs > .main > p')
+        ->each(function (Crawler $node) {
+            return $node->html();
+        });
+
+    return array(
+        'time'=>$weather_data[0],
+        'temperature'=>$weather_data[1],
+        'main_day'=>$today_data[0],
+        'today'=>$today_data[1].' '.$today_data[2],
+    );
 }
+
+getWeatherData();

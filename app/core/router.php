@@ -4,7 +4,6 @@ class Router{
 
     static function run(){
         $uri_data = explode('?', $_SERVER['REQUEST_URI']);
-        session_start();
         $_SESSION['is_logged_in'] = false;
         var_dump($uri_data);
 
@@ -16,7 +15,10 @@ class Router{
             include_once 'app/controllers/weather_controller.php';
             $wc = new WeatherController();
             $wc->render();
-        }
+        } elseif (strpos($uri_data[1], '_ijt') !== false){
+            var_dump('test');
+            header('Location: http://localhost:63343/bwt_test/index.php?weather');
+    }
 //
 //        if ($_SERVER['REQUEST_URI']){
 //        }
