@@ -11,6 +11,10 @@ class Router{
             include_once 'app/controllers/login_controller.php';
             $lc = new LoginController();
             $lc->render();
+        }elseif ($uri_data[1] == 'register') {
+                include_once 'app/controllers/register_controller.php';
+                $lc = new RegisterController();
+                $lc->render();
         } elseif ($uri_data[1] == 'weather'){
             include_once 'app/controllers/weather_controller.php';
             $wc = new WeatherController();

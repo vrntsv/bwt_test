@@ -22,7 +22,7 @@
                     <h4 class="card-title mt-2">Зарегистрироваться</h4>
                 </header>
                 <article class="card-body">
-                    <form>
+                    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
                         <div class="form-row">
                             <div class="col form-group">
                                 <label>Имя</label>
