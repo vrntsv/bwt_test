@@ -6,7 +6,7 @@ class Model
 
     function __construct()
     {
-        $pdo = new PDO('mysql:host=local;dbname=bwt_test', 'admin', 'admin');
+        $this->pdo = new PDO('mysql:host=localhost;dbname=bwt_test', 'admin', 'admin');
     }
 
     public function get_data()

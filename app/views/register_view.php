@@ -5,7 +5,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
@@ -26,16 +25,16 @@
                         <div class="form-row">
                             <div class="col form-group">
                                 <label>Имя</label>
-                                <input type="text" class="form-control" placeholder="" required>
+                                <input type="text" name="first_name" class="form-control" placeholder="" required>
                             </div> <!-- form-group end.// -->
                             <div class="col form-group">
                                 <label>Фамилия</label>
-                                <input type="text" class="form-control" placeholder=" " required>
+                                <input type="text" name="second_name" class="form-control" placeholder=" " required>
                             </div> <!-- form-group end.// -->
                         </div> <!-- form-row end.// -->
                         <div class="form-group">
                             <label>Электронная почта</label>
-                            <input type="email" class="form-control" placeholder="" required>
+                            <input type="email" name="email" class="form-control" placeholder="" required>
                         </div> <!-- form-group end.// -->
 
                         <div class="form-row">
@@ -43,24 +42,24 @@
                             <div class="col form-group">
                                 <br>
                                 <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="option1">
+                                    <input class="form-check-input" type="radio" name="gender" value="male">
                                     <span class="form-check-label"> Мужчина </span>
                                 </label>
                                 <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="option2">
+                                    <input class="form-check-input" type="radio" name="gender" value="female">
                                     <span class="form-check-label"> Женщина</span>
                                 </label>
 
                             </div> <!-- form-group end.// -->
                             <div class="col form-group">
                                 <label>Дата рождения</label>
-                                <input class="form-control" type="date">
+                                <input class="form-control" name="birth_date" type="date">
 
                             </div> <!-- form-group end.// -->
                         </div> <!-- form-row.// -->
                         <div class="form-group">
                             <label>Создать пароль</label>
-                            <input class="form-control" type="password">
+                            <input class="form-control" name="password" type="password">
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block"> Создать аккаунт  </button>

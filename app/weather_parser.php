@@ -38,11 +38,43 @@ function getWeatherData()
             return $node->html();
         });
 
+    $next_days_names = $crawler
+        ->filter('.tabs > .main > p > a')
+        ->each(function (Crawler $node) {
+            return $node->html();
+        });
+
+    $next_days_max_temp = $crawler
+        ->filter('.max > span ')
+        ->each(function (Crawler $node) {
+            return $node->html();
+        });
+
+    $next_days_min_temp = $crawler
+        ->filter('.min > span ')
+        ->each(function (Crawler $node) {
+            return $node->html();
+        });
+
+    $next_days_data = array();
+
+    foreach ($next_days_names as $index=>$name){
+        $next_days_data[$index] = array(
+            'name'=> $name,
+            'max'=>$next_days_max_temp[$index],
+            'min'=>$next_days_min_temp[$index]);
+    }
+
+    var_dump($next_days_data);
+
+#    var_dump($next_days_names);
+ #   var_dump($next_days_temperature);
     return array(
         'time'=>$weather_data[0],
         'temperature'=>$weather_data[1],
         'main_day'=>$today_data[0],
         'today'=>$today_data[1].' '.$today_data[2],
+        'next_days_data'=>$next_days_data,
     );
 }
 

@@ -19,6 +19,10 @@ class Router{
             include_once 'app/controllers/weather_controller.php';
             $wc = new WeatherController();
             $wc->render();
+        } elseif ($uri_data[1] == 'weather'){
+            include_once 'app/controllers/weather_controller.php';
+            $wc = new WeatherController();
+            $wc->render();
         } elseif (strpos($uri_data[1], '_ijt') !== false){
             var_dump('test');
             header('Location: http://localhost:63343/bwt_test/index.php?weather');
