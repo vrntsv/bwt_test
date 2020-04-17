@@ -17,7 +17,7 @@
             <div class="card">
 
                 <header class="card-header">
-                    <a href="" class="float-right btn btn-outline-primary mt-1">Войти</a>
+                    <a href="index.php?login" class="float-right btn btn-outline-primary mt-1">Войти</a>
                     <h4 class="card-title mt-2">Зарегистрироваться</h4>
                 </header>
                 <article class="card-body">

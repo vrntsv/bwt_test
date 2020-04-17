@@ -18,19 +18,19 @@
             <div class="card">
 
                 <header class="card-header">
-                    <a href="" class="float-right btn btn-outline-primary mt-1">Зарегистрироваться</a>
+                    <a href="index.php?register" class="float-right btn btn-outline-primary mt-1">Зарегистрироваться</a>
                     <h4 class="card-title mt-2">Войти</h4>
                 </header>
                 <article class="card-body">
-                    <form>
+                    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 
                         <div class="form-group">
                             <label>Электронная почта</label>
-                            <input type="email" class="form-control" placeholder="" required>
+                            <input type="email" name="email" class="form-control" placeholder="" required>
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <label>Пароль</label>
-                            <input class="form-control" type="password">
+                            <input class="form-control" name="password"  type="password">
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block"> Войти </button>

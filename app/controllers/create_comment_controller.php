@@ -1,6 +1,6 @@
 <?php
 
-class RegisterController extends Controller
+class CreateComment extends Controller
 {
     function __construct()
     {
