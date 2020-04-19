@@ -34,9 +34,9 @@
                 <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
                 <ul class="menu">
                     <li class="menu-item current-menu-item"><a href="index.php?weather">Главная</a></li>
-                    <li class="menu-item"><a href="news.html">Отзывы</a></li>
+                    <li class="menu-item"><a href="index.php?comments">Отзывы</a></li>
                     <li class="menu-item"><a href="index.php?create_comment">Написать отзыв</a></li>
-                    <li class="menu-item"><a href="photos.html">Выход</a></li>
+                    <li class="menu-item"><a href="index.php?exit">Выход</a></li>
                 </ul> <!-- .menu -->
             </div> <!-- .main-navigation -->
 

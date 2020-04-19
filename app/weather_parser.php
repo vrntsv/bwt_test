@@ -1,6 +1,5 @@
 <?php
 
-ini_set('display_errors', 'On');
 ini_set('allow_url_fopen', 'On');
 
 require_once '/Users/vrntsv/PhpstormProjects/bwt_test/composer/vendor/autoload.php';
@@ -65,10 +64,7 @@ function getWeatherData()
             'min'=>$next_days_min_temp[$index]);
     }
 
-    var_dump($next_days_data);
 
-#    var_dump($next_days_names);
- #   var_dump($next_days_temperature);
     return array(
         'time'=>$weather_data[0],
         'temperature'=>$weather_data[1],
@@ -78,4 +74,3 @@ function getWeatherData()
     );
 }
 
-getWeatherData();

@@ -23,7 +23,10 @@
                 </header>
                 <article class="card-body">
                     <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+                        <?php if ($data['invalid_data']):?>
+                            <h6 class="card-title mt-2" style="color: indianred">Неверные данные!</h6>
 
+                        <?php endif; ?>
                         <div class="form-group">
                             <label>Электронная почта</label>
                             <input type="email" name="email" class="form-control" placeholder="" required>

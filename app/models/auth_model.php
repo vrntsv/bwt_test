@@ -21,18 +21,15 @@ class AuthModel extends Model{
         $statement->execute();
     }
 
-    function is_registered($email, $password){
+    function get_user($email, $password){
         $sql ="SELECT * FROM users WHERE email=:email AND password=:password";
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':email', $email);
         $statement->bindParam(':password', $password);
         $statement->execute();
-        $user = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo 'user';
-        var_dump($user);
-        echo 'user';
+        $user = $statement->fetchAll();
+
 
         return $user;
-
     }
 }

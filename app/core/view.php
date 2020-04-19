@@ -10,7 +10,6 @@ class View {
         }
         */
         #var_dump('app/views/'.$view_name.'.php');
-        var_dump($data);
         include_once 'app/views/'.$view_name.'.php';
     }
 }

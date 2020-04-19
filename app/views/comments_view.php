@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- Loading main css file -->
     <style><?php include 'assets/style.css' ?></style>
+    <style><?php include 'assets/style_comments.css' ?></style>
     <!--[if lt IE 9]>
     <script><?php include 'assets/js/ie-support/html5.js' ?></script>
     <script><?php include 'assets/js/ie-support/respond.js' ?></script>
@@ -38,51 +39,48 @@
                 <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
                 <ul class="menu">
                     <li class="menu-item "><a href="index.php?weather">Главная</a></li>
-                    <li class="menu-item"><a href="index.php?comments">Отзывы</a></li>
-                    <li class="menu-item current-menu-item"><a href="index.php?create_comment">Написать отзыв</a></li>
+                    <li class="menu-item current-menu-item"><a href="index.php?comments">Отзывы</a></li>
+                    <li class="menu-item "><a href="index.php?create_comment">Написать отзыв</a></li>
                     <li class="menu-item"><a href="index.php?exit">Выход</a></li>
                 </ul> <!-- .menu -->
             </div> <!-- .main-navigation -->
 
-            <div class="mobile-navigation"></div>
 
         </div>
-    </div> <!-- .site-header -->
-    </div> <!-- .site-header -->
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <br><br><br>
-            <div class="card">
-
-                <header class="card-header">
-                    <h4 class="card-title mt-2">Оставить отзыв</h4>
-                </header>
-                <article class="card-body">
-                    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-                        <div class="form-row">
-
-                        </div> <!-- form-row end.// -->
-                        <div class="form-group">
-                            <label>Отзыв</label>
-                            <input type="text" name="short_comment" class="form-control" placeholder="" required>
-                        </div> <!-- form-group end.// -->
+</div> <!-- .site-header -->
 
 
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Дополнительная информация</label>
-                            <textarea class="form-control" name="full_comment" id="exampleFormControlTextarea1" rows="7" required></textarea>
-                        </div> <!-- form-group end.// -->
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block"> Добавить отзыв </button>
-                        </div> <!-- form-group// -->
-                    </form>
-                </article> <!-- card-body end .// -->
-            </div> <!-- card.// -->
-        </div> <!-- col.//-->
+<div class="container">
 
-    </div> <!-- row.//-->
+<div class="row">
+    <?php foreach ($data as $comment): ?>
+        <div class="col-md-8">
+            <div class="media g-mb-30 media-comment">
+                <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
+                     src="<?php if ($comment['gender'] == 'female'){
+                         echo 'assets/images/icons/female.png';
+                     }elseif ($comment['gender'] == 'male'){
+                         echo 'assets/images/icons/male.png';
 
+                     }else{
+                         echo 'assets/images/icons/none.png';
+                     }?>" alt="Image Description">
+                <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                    <div class="g-mb-15">
+                        <h5 class="h5 g-color-gray-dark-v1 mb-0" style="color: #007BFF"><?php echo $comment['first_name'].' '.$comment['second_name'] ?></h5>
+
+                        <h2 class="h2 g-color-gray-dark-v1 mb-0"><?php echo $comment['short_comment']?></h2><br>
+
+                    </div>
+
+                    <p><?php if($comment['full_comment']){echo $comment['full_comment'];}?></p>
+
+
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
 
 </div>
-<!--container end.//-->
 </body>

@@ -10,24 +10,29 @@ class CreateComment extends Controller
 
     function render()
     {
-        switch ($_SERVER['REQUEST_METHOD']) {
-            case 'GET':
-                $this->view->generate('create_comment_view');
-                break;
-            case 'POST':
-//                include_once 'app/models/auth_model.php';
-//                $auth = new AuthModel();
-//                $auth->register_user(
-//                    $_POST['first_name'],
-//                    $_POST['second_name'],
-//                    $_POST['email'],
-//                    $_POST['password'],
-//                    $_POST['gender'] ?? null,
-//                    $_POST['birth_date'] ?? null,
-//                    );
-                $this->view->generate('create_comment_view');
-                break;
+        session_start();
+        if($_SESSION['logged_in']) {
+            switch ($_SERVER['REQUEST_METHOD']) {
+                case 'GET':
+                    $this->view->generate('create_comment_view');
+                    break;
+                case 'POST':
+                    include_once 'app/models/comments_model.php';
+                    $auth = new CommentsModel();
+                    echo $_SESSION['user_data'][0]['id'];
+                    $auth->add_comment(
+                        $_SESSION['user_data'][0]['id'],
+                        $_POST['short_comment'],
+                        $_POST['full_comment']
+                    );
+                    header('Location: /bwt_test/index.php?comments');
 
+                    break;
+
+            }
+        }else{
+            header('Location: /bwt_test/index.php?login');
+            exit();
         }
 
     }
