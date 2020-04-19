@@ -23,7 +23,6 @@ class CreateComment extends Controller
                     if ($check->is_correct()){
                         include_once 'app/models/comments_model.php';
                         $auth = new CommentsModel();
-                        #echo $_SESSION['user_data'][0]['id'];
                         $auth->add_comment(
                             $_SESSION['user_data'][0]['id'],
                             $_POST['name'],

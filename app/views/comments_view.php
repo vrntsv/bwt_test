@@ -48,11 +48,22 @@
 
         </div>
 </div> <!-- .site-header -->
+    <br><br><br><br>
 
+    <?php if(empty($data)): ?>
+    <br>
 
-<div class="container">
+    <div class="container" style="text-align: center">
+        <div class="justify-content-center">
+
+            <div class="h1"><h1>Никто eщё не оставил отзыв :(</h1</div>
+            <div class="h2"><p><a href="index.php?create_comment"> Вы можете стать первым! </a></p></div>
+            </div>
+            <?php endif; ?>
+        <div class="container">
 
 <div class="row">
+
     <?php foreach ($data as $comment): ?>
         <div class="col-md-8">
             <div class="media g-mb-30 media-comment">

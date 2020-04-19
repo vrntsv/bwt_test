@@ -4,15 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
     <title>Главная</title>
-    <!-- Loading third party fonts -->
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
     <link href="/assets/fonts/font-awesome.min.css" rel="stylesheet" media="all" type="text/css"/>
-    <!-- Loading main css file -->
     <style><?php include 'assets/style.css' ?></style>
-    <!--[if lt IE 9]>
     <script><?php include 'assets/js/ie-support/html5.js' ?></script>
     <script><?php include 'assets/js/ie-support/respond.js' ?></script>
-    <![endif]-->
 
 </head>
 
@@ -53,7 +49,7 @@
                     <div class="forecast-header">
                         <div class="day"><?php echo $data['main_day']?></div>
                         <div class="date"><?php echo $data['today'] ?> </div>
-                    </div> <!-- .forecast-header -->
+                    </div>
                     <div class="forecast-content">
                         <div class="location"></div>
                         <div class="degree">
@@ -71,7 +67,7 @@
                 <div class="forecast">
                     <div class="forecast-header">
                         <div class="day"><?php echo $day['name'] ?></div>
-                    </div> <!-- .forecast-header -->
+                    </div>
                     <div class="forecast-content">
                         <div class="forecast-icon">
                             <img src="assets/images/icons/icon-3.svg" alt="" width=48>

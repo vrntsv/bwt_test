@@ -75,11 +75,14 @@
                         <label for="exampleFormControlTextarea1">Ваш отзыв</label>
                         <textarea class="form-control" name="full_comment" id="exampleFormControlTextarea1" rows="7" required></textarea>
                     </div> <!-- form-group end.// -->
-
+                    <br>
                     <?php if($data['invalid_data'] == 'no_captcha'): ?>
                         <h4 style="color: indianred"> Решите капчу!</h4>
                     <?php endif; ?>
-                    <div class="g-recaptcha" data-sitekey="6Le9R-sUAAAAAJ-OqYXpatv3aM5BK6tn8pENFQ2Y"></div>
+                    <div class="d-flex justify-content-center">
+                        <div class="g-recaptcha" data-sitekey="6Le9R-sUAAAAAJ-OqYXpatv3aM5BK6tn8pENFQ2Y"></div>
+                    </div>
+                    <br>
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block"> Добавить отзыв </button>
