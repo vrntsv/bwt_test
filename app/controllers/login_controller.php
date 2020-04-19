@@ -25,6 +25,7 @@ class LoginController extends Controller{
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_data'] = $user;
                     header('Location: /bwt_test/index.php?weather');
+                    exit();
                     break;
                 }
         }

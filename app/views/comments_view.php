@@ -67,13 +67,13 @@
                      }?>" alt="Image Description">
                 <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
                     <div class="g-mb-15">
-                        <h5 class="h5 g-color-gray-dark-v1 mb-0" style="color: #007BFF"><?php echo $comment['first_name'].' '.$comment['second_name'] ?></h5>
+                        <h5 class="h5 g-color-gray-dark-v1 mb-0" style="color: #007BFF"><?php echo $comment['inputed_email'] ?></h5>
 
-                        <h2 class="h2 g-color-gray-dark-v1 mb-0"><?php echo $comment['short_comment']?></h2><br>
+                        <h2 class="h2 g-color-gray-dark-v1 mb-0"><?php echo $comment['inputed_name']?></h2><br>
 
                     </div>
 
-                    <p><?php if($comment['full_comment']){echo $comment['full_comment'];}?></p>
+                    <p><?php echo $comment['full_comment'];?></p>
 
 
                 </div>

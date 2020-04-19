@@ -9,11 +9,12 @@ class CommentsModel extends Model
         parent::__construct();
     }
 
-    function add_comment($id_user, $short_comment, $full_comment){
-        $sql = 'INSERT INTO comments(short_comment, full_comment) 
-                VALUES (:short_comment, :full_comment)';
+    function add_comment($id_user, $inputed_name, $inputed_email, $full_comment){
+        $sql = 'INSERT INTO comments(inputed_name, inputed_email, full_comment) 
+                VALUES (:inputed_name, :inputed_email, :full_comment)';
         $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':short_comment', $short_comment);
+        $statement->bindParam(':inputed_name', $inputed_name);
+        $statement->bindParam(':inputed_email', $inputed_email);
         $statement->bindParam(':full_comment', $full_comment);
         $statement->execute();
         $sql = 'SELECT id FROM comments ORDER BY id DESC LIMIT 1';

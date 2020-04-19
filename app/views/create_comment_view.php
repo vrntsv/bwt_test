@@ -20,7 +20,6 @@
 
 </head>
 
-
 <body>
 
 <div class="site-content">
@@ -48,41 +47,53 @@
 
         </div>
     </div> <!-- .site-header -->
-    </div> <!-- .site-header -->
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <br><br><br>
-            <div class="card">
+</div> <!-- .site-header -->
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <br><br><br>
+        <div class="card">
 
-                <header class="card-header">
-                    <h4 class="card-title mt-2">Оставить отзыв</h4>
-                </header>
-                <article class="card-body">
-                    <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-                        <div class="form-row">
+            <header class="card-header">
+                <h4 class="card-title mt-2">Оставить отзыв</h4>
+            </header>
+            <article class="card-body">
+                <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+                    <div class="form-row">
 
-                        </div> <!-- form-row end.// -->
-                        <div class="form-group">
-                            <label>Отзыв</label>
-                            <input type="text" name="short_comment" class="form-control" placeholder="" required>
-                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-row end.// -->
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" name="name" class="form-control" placeholder="" required>
+                    </div> <!-- form-group end.// -->
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="" required>
+                    </div> <!-- form-group end.// -->
 
 
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Дополнительная информация</label>
-                            <textarea class="form-control" name="full_comment" id="exampleFormControlTextarea1" rows="7" required></textarea>
-                        </div> <!-- form-group end.// -->
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block"> Добавить отзыв </button>
-                        </div> <!-- form-group// -->
-                    </form>
-                </article> <!-- card-body end .// -->
-            </div> <!-- card.// -->
-        </div> <!-- col.//-->
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Ваш отзыв</label>
+                        <textarea class="form-control" name="full_comment" id="exampleFormControlTextarea1" rows="7" required></textarea>
+                    </div> <!-- form-group end.// -->
 
-    </div> <!-- row.//-->
+                    <?php if($data['invalid_data'] == 'no_captcha'): ?>
+                        <h4 style="color: indianred"> Решите капчу!</h4>
+                    <?php endif; ?>
+                    <div class="g-recaptcha" data-sitekey="6Le9R-sUAAAAAJ-OqYXpatv3aM5BK6tn8pENFQ2Y"></div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Добавить отзыв </button>
+                    </div> <!-- form-group// -->
+                </form>
+            </article> <!-- card-body end .// -->
+        </div> <!-- card.// -->
+    </div> <!-- col.//-->
+
+</div> <!-- row.//-->
 
 
 </div>
 <!--container end.//-->
 </body>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>

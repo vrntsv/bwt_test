@@ -26,7 +26,7 @@ class Router{
             include_once 'app/controllers/comments_controller.php';
             $cc = new Comments();
             $cc->render();
-        }  elseif ($uri_data[1] == 'exit'){
+        } elseif ($uri_data[1] == 'exit'){
             $_SESSION = array();
             session_destroy();
             header('Location: /bwt_test/index.php?login');

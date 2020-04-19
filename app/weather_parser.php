@@ -2,7 +2,7 @@
 
 ini_set('allow_url_fopen', 'On');
 
-require_once '/Users/vrntsv/PhpstormProjects/bwt_test/composer/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/composer/vendor/autoload.php';
 
 
 use Symfony\Component\DomCrawler\Crawler;
