@@ -16,6 +16,7 @@ class RegisterController extends Controller{
                 case 'POST':
                     include_once 'app/models/auth_model.php';
                     $auth = new AuthModel();
+                    var_dump($_POST);
                     $auth->register_user(
                         $_POST['first_name'],
                         $_POST['second_name'],

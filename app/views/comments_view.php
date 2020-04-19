@@ -63,7 +63,6 @@
         <div class="container">
 
 <div class="row">
-
     <?php foreach ($data as $comment): ?>
         <div class="col-md-8">
             <div class="media g-mb-30 media-comment">
@@ -72,21 +71,15 @@
                          echo 'assets/images/icons/female.png';
                      }elseif ($comment['gender'] == 'male'){
                          echo 'assets/images/icons/male.png';
-
                      }else{
                          echo 'assets/images/icons/none.png';
                      }?>" alt="Image Description">
                 <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
                     <div class="g-mb-15">
                         <h5 class="h5 g-color-gray-dark-v1 mb-0" style="color: #007BFF"><?php echo $comment['inputed_email'] ?></h5>
-
                         <h2 class="h2 g-color-gray-dark-v1 mb-0"><?php echo $comment['inputed_name']?></h2><br>
-
                     </div>
-
                     <p><?php echo $comment['full_comment'];?></p>
-
-
                 </div>
             </div>
         </div>
