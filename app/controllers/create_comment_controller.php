@@ -2,17 +2,16 @@
 
 class CreateComment extends Controller
 {
-    function __construct()
+    public function __construct()
     {
         //inherit the parent constructor
         parent::__construct();
     }
 
-
-    function render()
+    public function render()
     {
         session_start();
-        if($_SESSION['logged_in']) {
+        if ($_SESSION['logged_in']) {
             switch ($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
                     $this->view->generate('create_comment_view');
@@ -20,7 +19,7 @@ class CreateComment extends Controller
                 case 'POST':
                     include_once 'app/CaptchaCheck.php';
                     $check = new CaptchaCheck($_POST);
-                    if ($check->is_correct()){
+                    if ($check->is_correct()) {
                         include_once 'app/models/comments_model.php';
                         $auth = new CommentsModel();
                         $auth->add_comment(
@@ -30,19 +29,15 @@ class CreateComment extends Controller
                             $_POST['full_comment']
                         );
                         header('Location: /bwt_test/index.php?comments');
-                    }else{
-                        $this->view->generate('create_comment_view', array('invalid_data'=>'no_captcha'));
-
+                    } else {
+                        $this->view->generate('create_comment_view', ['invalid_data'=>'no_captcha']);
                     }
                     break;
 
             }
-        }else{
+        } else {
             header('Location: /bwt_test/index.php?login');
             exit();
         }
-
     }
-
-
 }

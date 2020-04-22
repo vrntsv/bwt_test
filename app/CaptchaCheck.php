@@ -1,36 +1,34 @@
 <?php
 
-
 class CaptchaCheck
 {
     public $post;
 
-    function __construct($post)
+    public function __construct($post)
     {
         $this->post = $post;
     }
 
-    function is_correct(){
+    public function is_correct()
+    {
+        require_once 'app/recaptchalib.php';
 
-        require_once "app/recaptchalib.php";
-
-        $siteKey = "6Le9R-sUAAAAAJ-OqYXpatv3aM5BK6tn8pENFQ2Y";
-        $secret = "6Le9R-sUAAAAAMGKP2R-sZuCw3AL3iaNbJYq0rre";
-        $lang = "ru";
+        $siteKey = '6Le9R-sUAAAAAJ-OqYXpatv3aM5BK6tn8pENFQ2Y';
+        $secret = '6Le9R-sUAAAAAMGKP2R-sZuCw3AL3iaNbJYq0rre';
+        $lang = 'ru';
         $resp = null;
         $error = null;
         $reCaptcha = new ReCaptcha($secret);
-        if ($this->post["g-recaptcha-response"]) {
+        if ($this->post['g-recaptcha-response']) {
             $resp = $reCaptcha->verifyResponse(
-                $_SERVER["REMOTE_ADDR"],
-                $this->post["g-recaptcha-response"]
+                $_SERVER['REMOTE_ADDR'],
+                $this->post['g-recaptcha-response']
             );
         }
-        if ($resp != null && $resp->success){
+        if ($resp != null && $resp->success) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-
 }

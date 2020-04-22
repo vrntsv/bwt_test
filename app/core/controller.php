@@ -1,15 +1,15 @@
 <?php
-class Controller{
 
+class controller
+{
     public $view;
 
-    function __construct(){
+    public function __construct()
+    {
         $this->view = new View();
-
     }
 
-    function render(){
-
+    public function render()
+    {
     }
-
 }

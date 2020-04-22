@@ -1,11 +1,14 @@
 <?php
-class RegisterController extends Controller{
-    function __construct()
+
+class RegisterController extends Controller
+{
+    public function __construct()
     {
         //inherit the parent constructor
         parent::__construct();
     }
-    function render()
+
+    public function render()
     {
         session_start();
         if (!$_SESSION['logged_in']) {
@@ -24,7 +27,7 @@ class RegisterController extends Controller{
                         $_POST['password'],
                         $_POST['gender'] ?? null,
                         $_POST['birth_date'] ?? null,
-                        );
+                    );
                     session_start();
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_data'] = $auth->get_user($_POST['email'], $_POST['password']);
@@ -33,11 +36,8 @@ class RegisterController extends Controller{
                     break;
 
             }
-
-        }else{
+        } else {
             header('Location: /bwt_test/index.php?weather');
         }
     }
-
-
 }

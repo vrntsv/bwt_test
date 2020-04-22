@@ -1,14 +1,16 @@
 <?php
+
 include_once 'app/core/model.php';
 
-class AuthModel extends Model{
-
-    function __construct()
+class AuthModel extends Model
+{
+    public function __construct()
     {
         parent::__construct();
     }
 
-    function register_user($first_name, $second_name, $email, $password, $gender=null, $birth_date=null ){
+    public function register_user($first_name, $second_name, $email, $password, $gender = null, $birth_date = null)
+    {
         $sql = 'INSERT INTO users(first_name, second_name, email, password, gender, birth_date) 
                 VALUES (:first_name, :second_name, :email, :password, :gender, :birth_date)';
 
@@ -18,28 +20,28 @@ class AuthModel extends Model{
         $statement->bindParam(':email', $email);
         $statement->bindParam(':password', $password);
 
-        if (strlen($gender) == 0){
+        if (strlen($gender) == 0) {
             $statement->bindValue(':gender', null, PDO::PARAM_INT);
-        }else {
+        } else {
             $statement->bindParam(':gender', $birth_date);
         }
 
-        if (strlen($birth_date) == 0){
+        if (strlen($birth_date) == 0) {
             $statement->bindValue(':birth_date', null, PDO::PARAM_INT);
-        }else {
+        } else {
             $statement->bindParam(':birth_date', $birth_date);
         }
         $statement->execute();
     }
 
-    function get_user($email, $password){
-        $sql ="SELECT * FROM users WHERE email=:email AND password=:password";
+    public function get_user($email, $password)
+    {
+        $sql = 'SELECT * FROM users WHERE email=:email AND password=:password';
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':email', $email);
         $statement->bindParam(':password', $password);
         $statement->execute();
         $user = $statement->fetchAll();
-
 
         return $user;
     }
