@@ -1,6 +1,11 @@
 <?php
 
-class CreateComment extends Controller
+
+namespace app\controllers;
+use app\core\Controller as Controller;
+
+
+class CreateCommentController extends Controller
 {
     public function __construct()
     {
@@ -17,12 +22,11 @@ class CreateComment extends Controller
                     $this->view->generate('create_comment_view');
                     break;
                 case 'POST':
-                    include_once 'app/CaptchaCheck.php';
-                    $check = new CaptchaCheck($_POST);
-                    if ($check->is_correct()) {
+                    $check = new \app\Captcha\CaptchaCheck($_POST);
+                    if ($check->isCorrect()) {
                         include_once 'app/models/comments_model.php';
-                        $auth = new CommentsModel();
-                        $auth->add_comment(
+                        $auth = new \app\models\CommentsModel\CommentsModel();
+                        $auth->addComment(
                             $_SESSION['user_data'][0]['id'],
                             $_POST['name'],
                             $_POST['email'],

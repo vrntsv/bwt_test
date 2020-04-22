@@ -1,6 +1,9 @@
 <?php
 
-class view
+namespace app\core;
+
+
+class View
 {
     public function generate($view_name, $data = null)
     {

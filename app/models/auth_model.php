@@ -1,6 +1,7 @@
 <?php
 
-include_once 'app/core/model.php';
+namespace app\models\Auth;
+use app\core\Model as Model;
 
 class AuthModel extends Model
 {
@@ -9,7 +10,7 @@ class AuthModel extends Model
         parent::__construct();
     }
 
-    public function register_user($first_name, $second_name, $email, $password, $gender = null, $birth_date = null)
+    public function registerUser($first_name, $second_name, $email, $password, $gender = null, $birth_date = null)
     {
         $sql = 'INSERT INTO users(first_name, second_name, email, password, gender, birth_date) 
                 VALUES (:first_name, :second_name, :email, :password, :gender, :birth_date)';
@@ -34,7 +35,7 @@ class AuthModel extends Model
         $statement->execute();
     }
 
-    public function get_user($email, $password)
+    public function getUser($email, $password)
     {
         $sql = 'SELECT * FROM users WHERE email=:email AND password=:password';
         $statement = $this->pdo->prepare($sql);

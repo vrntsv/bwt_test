@@ -1,5 +1,9 @@
 <?php
 
+namespace app\controllers;
+use \app\core\Controller as Controller;
+
+
 class LoginController extends Controller
 {
     public function render()
@@ -15,8 +19,7 @@ class LoginController extends Controller
                 }
                 break;
             case 'POST':
-                include_once 'app/models/auth_model.php';
-                $am = new AuthModel();
+                $am = new \app\models\Auth\AuthModel();
                 $user = $am->get_user($_POST['email'], $_POST['password']);
                 if (empty($user)) {
                     $this->view->generate('login_view', ['invalid_data'=>true]);

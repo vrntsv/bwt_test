@@ -25,11 +25,7 @@ function getWeatherData()
         ->each(function (Crawler $node) {
             return $node->html();
         });
-    $main_day = $crawler
-        ->filter('.tabs > .main > .day-link ')
-        ->each(function (Crawler $node) {
-            return $node->html();
-        });
+
 
     $today_data = $crawler
         ->filter('.tabs > .main > p')

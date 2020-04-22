@@ -1,6 +1,7 @@
 <?php
 
-include_once 'app/core/model.php';
+namespace app\models\CommentsModel;
+use app\core\Model as Model;
 
 class CommentsModel extends Model
 {
@@ -9,7 +10,7 @@ class CommentsModel extends Model
         parent::__construct();
     }
 
-    public function add_comment($id_user, $inputed_name, $inputed_email, $full_comment)
+    public function addComment($id_user, $inputed_name, $inputed_email, $full_comment)
     {
         $sql = 'INSERT INTO comments(inputed_name, inputed_email, full_comment) 
                 VALUES (:inputed_name, :inputed_email, :full_comment)';
@@ -30,7 +31,7 @@ class CommentsModel extends Model
         $statement->execute();
     }
 
-    public function get_comments()
+    public function getComments()
     {
         $sql = 'SELECT * FROM users_comments 
             LEFT JOIN comments on users_comments.id_comment=comments.id 

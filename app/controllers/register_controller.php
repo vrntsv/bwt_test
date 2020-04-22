@@ -1,5 +1,9 @@
 <?php
 
+namespace app\controllers;
+use app\core\Controller as Controller;
+
+
 class RegisterController extends Controller
 {
     public function __construct()
@@ -17,10 +21,8 @@ class RegisterController extends Controller
                     $this->view->generate('register_view');
                     break;
                 case 'POST':
-                    include_once 'app/models/auth_model.php';
-                    $auth = new AuthModel();
-                    var_dump($_POST);
-                    $auth->register_user(
+                    $auth = new \app\models\Auth\AuthModel();
+                    $auth->registerUser(
                         $_POST['first_name'],
                         $_POST['second_name'],
                         $_POST['email'],
@@ -30,7 +32,7 @@ class RegisterController extends Controller
                     );
                     session_start();
                     $_SESSION['logged_in'] = true;
-                    $_SESSION['user_data'] = $auth->get_user($_POST['email'], $_POST['password']);
+                    $_SESSION['user_data'] = $auth->getUser($_POST['email'], $_POST['password']);
                     header('Location: /bwt_test/index.php?weather');
                     exit();
                     break;

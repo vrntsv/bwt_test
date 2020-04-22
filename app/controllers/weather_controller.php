@@ -1,5 +1,8 @@
 <?php
 
+namespace app\controllers;
+use app\core\Controller as Controller;
+
 class WeatherController extends Controller
 {
     public function render()

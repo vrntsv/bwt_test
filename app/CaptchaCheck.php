@@ -1,4 +1,5 @@
 <?php
+namespace app\Captcha;
 
 class CaptchaCheck
 {
@@ -9,7 +10,7 @@ class CaptchaCheck
         $this->post = $post;
     }
 
-    public function is_correct()
+    public function isCorrect()
     {
         require_once 'app/recaptchalib.php';
 
