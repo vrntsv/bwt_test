@@ -1,7 +1,8 @@
 <?php
-class View {
 
-    function generate($view_name, $data = null)
+class view
+{
+    public function generate($view_name, $data = null)
     {
         /*
         if(is_array($data)) {
@@ -9,7 +10,7 @@ class View {
             extract($data);
         }
         */
-        #var_dump('app/views/'.$view_name.'.php');
+        //var_dump('app/views/'.$view_name.'.php');
         include_once 'app/views/'.$view_name.'.php';
     }
 }

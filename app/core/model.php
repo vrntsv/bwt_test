@@ -1,10 +1,10 @@
 <?php
 
-class Model
+class model
 {
     public $pdo;
 
-    function __construct()
+    public function __construct()
     {
         $this->pdo = new PDO('mysql:host=localhost;dbname=bwt_test', 'admin', 'admin');
     }

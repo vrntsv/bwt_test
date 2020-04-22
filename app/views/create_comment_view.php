@@ -76,9 +76,9 @@
                         <textarea class="form-control" name="full_comment" id="exampleFormControlTextarea1" rows="7" required></textarea>
                     </div> <!-- form-group end.// -->
                     <br>
-                    <?php if($data['invalid_data'] == 'no_captcha'): ?>
+                    <?php if ($data['invalid_data'] == 'no_captcha') { ?>
                         <h4 style="color: indianred"> Решите капчу!</h4>
-                    <?php endif; ?>
+                    <?php } ?>
                     <div class="d-flex justify-content-center">
                         <div class="g-recaptcha" data-sitekey="6Le9R-sUAAAAAJ-OqYXpatv3aM5BK6tn8pENFQ2Y"></div>
                     </div>

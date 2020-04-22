@@ -1,15 +1,16 @@
 <?php
+
 include_once 'app/core/model.php';
 
 class CommentsModel extends Model
 {
-
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
     }
 
-    function add_comment($id_user, $inputed_name, $inputed_email, $full_comment){
+    public function add_comment($id_user, $inputed_name, $inputed_email, $full_comment)
+    {
         $sql = 'INSERT INTO comments(inputed_name, inputed_email, full_comment) 
                 VALUES (:inputed_name, :inputed_email, :full_comment)';
         $statement = $this->pdo->prepare($sql);
@@ -27,17 +28,16 @@ class CommentsModel extends Model
         $statement->bindParam(':id_user', $id_user);
         $statement->bindParam(':id_comment', $id_comment[0]['id']);
         $statement->execute();
-
     }
 
-    function get_comments(){
+    public function get_comments()
+    {
         $sql = 'SELECT * FROM users_comments 
             LEFT JOIN comments on users_comments.id_comment=comments.id 
             LEFT JOIN users on users_comments.id_user=users.id  ORDER BY comments.id  DESC ';
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
+
         return $statement->fetchAll();
-
     }
-
 }

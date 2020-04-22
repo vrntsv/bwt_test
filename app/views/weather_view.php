@@ -63,7 +63,7 @@
                         <span><img src="assets/images/icon-compass.png" alt="">Западный</span>
                     </div>
                 </div>
-                <?php foreach ($data['next_days_data'] as $day): ?>
+                <?php foreach ($data['next_days_data'] as $day) { ?>
                 <div class="forecast">
                     <div class="forecast-header">
                         <div class="day"><?php echo $day['name'] ?></div>
@@ -76,7 +76,7 @@
                         <small><?php echo $day['min'] ?></small>
                     </div>
                 </div>
-                <?php endforeach;?>
+                <?php }?>
                 </div>
             </div>
         </div>

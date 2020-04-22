@@ -50,7 +50,7 @@
 </div> <!-- .site-header -->
     <br><br><br><br>
 
-    <?php if(empty($data)): ?>
+    <?php if (empty($data)) { ?>
     <br>
 
     <div class="container" style="text-align: center">
@@ -59,31 +59,31 @@
             <div class="h1"><h1>Никто eщё не оставил отзыв :(</h1</div>
             <div class="h2"><p><a href="index.php?create_comment"> Вы можете стать первым! </a></p></div>
             </div>
-            <?php endif; ?>
+            <?php } ?>
         <div class="container">
 
 <div class="row">
-    <?php foreach ($data as $comment): ?>
+    <?php foreach ($data as $comment) { ?>
         <div class="col-md-8">
             <div class="media g-mb-30 media-comment">
                 <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
-                     src="<?php if ($comment['gender'] == 'female'){
-                         echo 'assets/images/icons/female.png';
-                     }elseif ($comment['gender'] == 'male'){
-                         echo 'assets/images/icons/male.png';
-                     }else{
-                         echo 'assets/images/icons/none.png';
-                     }?>" alt="Image Description">
+                     src="<?php if ($comment['gender'] == 'female') {
+    echo 'assets/images/icons/female.png';
+} elseif ($comment['gender'] == 'male') {
+    echo 'assets/images/icons/male.png';
+} else {
+    echo 'assets/images/icons/none.png';
+}?>" alt="Image Description">
                 <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
                     <div class="g-mb-15">
                         <h5 class="h5 g-color-gray-dark-v1 mb-0" style="color: #007BFF"><?php echo $comment['inputed_email'] ?></h5>
                         <h2 class="h2 g-color-gray-dark-v1 mb-0"><?php echo $comment['inputed_name']?></h2><br>
                     </div>
-                    <p><?php echo $comment['full_comment'];?></p>
+                    <p><?php echo $comment['full_comment']; ?></p>
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php } ?>
 </div>
 
 </div>
