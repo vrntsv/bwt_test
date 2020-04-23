@@ -1,0 +1,44 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "symfony/dom-crawler": "^4.4",
+        "symfony/css-selector": "^4.4",
+        "ext-pdo": "*",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "classmap": [
+            "../app/core/",
+            "../app/core/model.php",
+            "../app/core/controller.php",
+            "../app/core/view.php",
+            "../app/core/router.php",
+            "../app/models/AuthModel.php",
+            "../app/models/CommentsModel.php",
+            "../app/WeatherParser.php",
+            "../app/controllers/LoginController.php",
+            "../app/controllers/CreateCommentController.php",
+            "../app/controllers/CommentsController.php",
+            "../app/controllers/RegisterController.php",
+            "../app/controllers/WeatherController.php",
+            "../app/core/DB.php",
+            "../app/CaptchaCheck.php"
+        ],
+        "psr4": {
+            "app\\": "app/",
+            "core\\": "app/core/",
+            "\\": "",
+            "Router\\": "app/core/router",
+            "AuthModel\\": "app/models/AuthModel",
+            "CommentsModel\\": "app/models/CommentsModel",
+            "LoginController\\": "app/controllers/LoginController",
+            "Captcha\\": "app/CaptchaCheck",
+            "WeatherParser\\": "app/WeatherParser",
+            "WeatherController\\": "app/controllers/WeatherController",
+            "CommentsController\\": "app/controllers/CommentsController",
+            "CreateCommentController\\": "app/controllers/CreateCommentController",
+            "RegisterController\\": "app/controllers/RegisterController",
+            "DB\\": "app/core/DB"
+        }
+    }
+}
