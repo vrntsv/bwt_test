@@ -2,12 +2,12 @@
 
 class DB
 {
-    // [Singleton]
     private static $instance = null;
     private static $DB_HOST  = 'localhost';
     private static $DB_NAME  = 'bwt_test';
     private static $DB_USER  = 'admin';
     private static $DB_PASS  = 'admin';
+    private $pdo = null;
 
     public static function getInstance()
     {
@@ -21,9 +21,7 @@ class DB
 
 
     private function __clone(){}
-    // [/Singleton]
 
-    private $pdo = null;
 
     private function __construct()
     {

@@ -7,7 +7,6 @@ class CommentsController extends Controller
 {
     function __construct()
     {
-        //inherit the parent constructor
         parent::__construct();
     }
 

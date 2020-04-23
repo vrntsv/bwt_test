@@ -29,8 +29,9 @@ class Router
             session_destroy();
             header('Location: /bwt_test/index.php?login');
             exit();
-        } elseif (strpos($uri_data[1], '_ijt') !== false) {
+        } else {
             header('Location: /bwt_test/index.php?login');
         }
+
     }
 }

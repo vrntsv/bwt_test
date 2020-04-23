@@ -8,7 +8,6 @@ class RegisterController extends Controller
 {
     public function __construct()
     {
-        //inherit the parent constructor
         parent::__construct();
     }
 
