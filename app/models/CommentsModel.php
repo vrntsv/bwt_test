@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models\CommentsModel;
+namespace \CommentsModel::class;
 use app\core\Model as Model;
 
 class CommentsModel extends Model
@@ -10,24 +10,24 @@ class CommentsModel extends Model
         parent::__construct();
     }
 
-    public function addComment($id_user, $inputed_name, $inputed_email, $full_comment)
+    public function addComment($idUser, $inputedName, $inputedEmail, $fullComment)
     {
         $sql = 'INSERT INTO comments(inputed_name, inputed_email, full_comment) 
                 VALUES (:inputed_name, :inputed_email, :full_comment)';
         $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':inputed_name', $inputed_name);
-        $statement->bindParam(':inputed_email', $inputed_email);
-        $statement->bindParam(':full_comment', $full_comment);
+        $statement->bindParam(':inputed_name', $inputedName);
+        $statement->bindParam(':inputed_email', $inputedEmail);
+        $statement->bindParam(':full_comment', $fullComment);
         $statement->execute();
         $sql = 'SELECT id FROM comments ORDER BY id DESC LIMIT 1';
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
-        $id_comment = $statement->fetchAll();
+        $idComment = $statement->fetchAll();
         $sql = 'INSERT INTO users_comments(id_user, id_comment) 
                 VALUES (:id_user, :id_comment)';
         $statement = $this->pdo->prepare($sql);
-        $statement->bindParam(':id_user', $id_user);
-        $statement->bindParam(':id_comment', $id_comment[0]['id']);
+        $statement->bindParam(':id_user', $idUser);
+        $statement->bindParam(':id_comment', $idComment[0]['id']);
         $statement->execute();
     }
 

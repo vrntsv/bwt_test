@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace \Router::class;
 
 
 class Router
@@ -10,24 +10,19 @@ class Router
         $uri_data = explode('?', $_SERVER['REQUEST_URI']);
         session_start();
         if ($uri_data[1] == 'login') {
-            $lc = new \app\controllers\LoginController();
+            $lc = new \LoginController();
             $lc->render();
         } elseif ($uri_data[1] == 'register') {
-            include_once 'app/controllers/register_controller.php';
-            $rc = new \app\controllers\RegisterController();
+            $rc = new \RegisterController();
             $rc->render();
         } elseif ($uri_data[1] == 'weather') {
-            include_once 'app/controllers/weather_controller.php';
-
-            $wc = new \app\controllers\WeatherController();
+            $wc = new \WeatherController();
             $wc->render();
         } elseif ($uri_data[1] == 'create_comment') {
-            include_once 'app/controllers/create_comment_controller.php';
-            $cc = new \app\controllers\CreateComment();
+            $cc = new \CreateCommentController();
             $cc->render();
         } elseif ($uri_data[1] == 'comments') {
-            #include_once 'app/controllers/comments_controller.php';
-            $cc = new \app\controllers\CommentsController();
+            $cc = new \CommentsController();
             $cc->render();
         } elseif ($uri_data[1] == 'exit') {
             $_SESSION = [];

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\controllers;
+namespace \CreateCommentController::class;
 use app\core\Controller as Controller;
 
 
@@ -22,10 +22,9 @@ class CreateCommentController extends Controller
                     $this->view->generate('create_comment_view');
                     break;
                 case 'POST':
-                    $check = new \app\Captcha\CaptchaCheck($_POST);
+                    $check = new \CaptchaCheck($_POST);
                     if ($check->isCorrect()) {
-                        include_once 'app/models/comments_model.php';
-                        $auth = new \app\models\CommentsModel\CommentsModel();
+                        $auth = new \CommentsModel();
                         $auth->addComment(
                             $_SESSION['user_data'][0]['id'],
                             $_POST['name'],

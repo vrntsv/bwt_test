@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace \RegisterController::class;
 use app\core\Controller as Controller;
 
 
