@@ -19,7 +19,7 @@ class LoginController extends Controller
                 }
                 break;
             case 'POST':
-                $am = new \app\models\Auth\AuthModel();
+                $am = new \AuthModel();
                 $user = $am->getUser($_POST['email'], $_POST['password']);
                 if (empty($user)) {
                     $this->view->generate('login_view', ['invalid_data'=>true]);
