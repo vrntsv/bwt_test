@@ -21,7 +21,7 @@ class RegisterController extends Controller
                     $this->view->generate('register_view');
                     break;
                 case 'POST':
-                    $auth = new \app\models\Auth\AuthModel();
+                    $auth = new \AuthModel();
                     $auth->registerUser(
                         $_POST['first_name'],
                         $_POST['second_name'],
